@@ -2,54 +2,26 @@
 
 E-Library
 
-# Maven
+# What is Spring?
 
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
+Spring is a Java framework that build clean and scalable applications. It makes things like connecting parts of your app, working with databases, and handling web requests easier.
 
-# Gradle
+# What is Spring Boot?
 
-.gradle/
-build/
-!gradle/wrapper/gradle-wrapper.jar
+Spring Boot is a tool built on top of Spring that makes it easier to create and run Spring applications. It handles a lot of setup, like configuration and server setup
 
-# Common
+# What is the relation between Spring platform and Spring Boot?
 
-_.log
-_.class
-_.jar
-_.war
-_.iml
-_.swp
-.DS_Store
-.idea/
-_.iws
-_.ipr
-_.bak
-_.tmp
+Spring Boot is a part of the Spring platform. While the Spring platform includes many projects like Spring Framework, Spring Data, etc. Spring Boot helps simplify using them by handling configurations and setup automatically.
 
-# IntelliJ
+# What is the relation between Spring platform and Spring framework?
 
-\*.iml
-.idea/
-out/
+The Spring framework is the core of the Spring platform. The platform includes the framework and other related projects like Spring Boot, Spring Security, and Spring Data that build on top of it.
 
-# Eclipse
+# What is Dependency Injection and how is it done in the Spring platform/framework?
 
-.project
-.classpath
-.settings/
-bin/
+Dependency Injection (DI) is a design pattern where objects are given their dependencies instead of creating them. In Spring, DI is done automatically using annotations like @Component, @Autowired, or by defining beans in configuration files or classes.
 
-# VS Code
+# What is Inversion of Control (IoC) and how is it related to Spring?
 
-.vscode/
-
-# OS generated
-
-Thumbs.db
-ehthumbs
+Inversion of Control (IoC) is a design principle where the control of object creation and management is shifted from the application code to a framework or container. In Spring, IoC is implemented through the IoC container, which manages the lifecycle and dependencies of objects using Dependency Injection (DI).
