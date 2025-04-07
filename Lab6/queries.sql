@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS lab6;
 USE lab6;
 
 CREATE TABLE DENTIST (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY ,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     contact_phone VARCHAR(15),
@@ -10,7 +10,7 @@ CREATE TABLE DENTIST (
     specialty VARCHAR(50)
 );
 CREATE TABLE PATIENT (
-    id INT PRIMARY KEY,
+    id VARCHAR(50) PRIMARY KEY ,
     first_name VARCHAR(50),
     last_name VARCHAR(50),
     contact_phone VARCHAR(15),
@@ -19,14 +19,14 @@ CREATE TABLE PATIENT (
 );
 
 CREATE TABLE SURGERY (
-    id INT PRIMARY KEY,
+    id VARCHAR(50) PRIMARY KEY,
     name VARCHAR(50),
     location TEXT,
     telephone INT
 );
 
 CREATE TABLE APPOINTMENT (
-    id INT PRIMARY KEY,
+    id INT PRIMARY KEY AUTO_INCREMENT
     appointment_date DATE,
     appointment_time TIME,
     request_origin VARCHAR(50),
@@ -40,7 +40,23 @@ CREATE TABLE BILL(
     amount DECIMAL(10, 2),
     payment_date DATE,
     FOREIGN KEY (appointment_id) REFERENCES APPOINTMENT(id),
-)
+);
+
+INSERT INTO DENTIST(id, first_name, last_name, contact_phone, email, specialty) 
+VALUES(1, 'TONY', 'SMITH', '18181818181', 'email@gmail.com', 'DENTAL'), 
+(2, 'HELEN ', 'PEARSON', '18181818181', 'email@gmail.com', 'DENTAL'), 
+(3, 'ROBIN ', 'PLEVIN', '18181818181', 'email@gmail.com', 'DENTAL');
+
+INSERT INTO PATIENT(id, first_name, last_name, contact_phone, email) 
+VALUES('P100', 'GILLIAN', 'WHITE', '18181818181', 'email@gmail.com'), 
+('P105', 'JILL ', 'BELL', '18181818181', 'email@gmail.com'), 
+('P108', 'IAN ', 'MACKAY', '18181818181', 'email@gmail.com');
+('P110', 'JOHN ', 'WALKER', '18181818181', 'email@gmail.com');
+
+INSERT INTO SURGERY(id, name, location, telephone) 
+VALUES('S15', 'NAME1', '1ST FLOOR', '12345665432'), 
+('S10', 'NAME2', '1ST FLOOR', '12345665432'), 
+('S13', 'NAME3', '2ND FLOOR', '12345665432');
 
 SELECT * FROM DENTIST ORDER BY last_name;
 
