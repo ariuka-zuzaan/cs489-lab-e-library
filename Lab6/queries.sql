@@ -1,0 +1,60 @@
+CREATE DATABASE IF NOT EXISTS lab6;
+USE lab6;
+
+CREATE TABLE DENTIST (
+    id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    contact_phone VARCHAR(15),
+    email VARCHAR(50),
+    specialty VARCHAR(50)
+);
+CREATE TABLE PATIENT (
+    id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    contact_phone VARCHAR(15),
+    email VARCHAR(50),
+    is_banned BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE SURGERY (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    location TEXT,
+    telephone INT
+);
+
+CREATE TABLE APPOINTMENT (
+    id INT PRIMARY KEY,
+    appointment_date DATE,
+    appointment_time TIME,
+    request_origin VARCHAR(50),
+    status VARCHAR(20),
+    FOREIGN KEY (patient_id) REFERENCES PATIENT(id),
+    FOREIGN KEY (dentist_id) REFERENCES DENTIST(id),
+    FOREIGN KEY (surgery_id) REFERENCES SURGERY(id)
+);
+CREATE TABLE BILL(
+    id INT PRIMARY KEY,
+    amount DECIMAL(10, 2),
+    payment_date DATE,
+    FOREIGN KEY (appointment_id) REFERENCES APPOINTMENT(id),
+)
+
+SELECT * FROM DENTIST ORDER BY last_name;
+
+SELECT APPOINTMENT.id, APPOINTMENT.date, APPOINTMENT.status, APPOINTMENT.request_origin, PATIENT.first_name, PATIENT.last_name
+FROM APPOINTMENT
+JOIN DENTIST ON DENTIST.id = APPOINTMENT.dentist_id
+JOIN PATIENT ON APPOINTMENT.patient_id = PATIENT.id
+WHERE DENTIST.id = 1;
+
+SELECT APPOINTMENT.id, APPOINTMENT.date, APPOINTMENT.status, APPOINTMENT.request_origin
+FROM APPOINTMENT
+JOIN SURGERY ON SURGERY.id = APPOINTMENT.surgery_id
+
+SELECT APPOINTMENT.id, APPOINTMENT.date, APPOINTMENT.status, APPOINTMENT.request_origin
+FROM APPOINTMENT
+JOIN PATIENT ON PATIENT.id = APPOINTMENT.patient_id
+WHERE PATIENT.id = 1 and APPOINTMENT.date = '2023-10-01';
