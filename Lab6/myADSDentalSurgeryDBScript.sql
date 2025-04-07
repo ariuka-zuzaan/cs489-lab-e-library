@@ -63,13 +63,7 @@ VALUES('S15', 'NAME1', '1ST FLOOR', '12345665432'),
 ('S10', 'NAME2', '1ST FLOOR', '12345665432'), 
 ('S13', 'NAME3', '2ND FLOOR', '12345665432');
 
-INSERT INTO APPOINTMENT(id, appointment_date,
-    appointment_time ,
-    request_origin ,
-    status ,
-    patient_id ,
-    dentist_id ,
-    surgery_id)
+INSERT INTO APPOINTMENT(id, appointment_date, appointment_time, request_origin, status, patient_id,dentist_id,surgery_id)
 VALUES(1, '2013-09-12', '10:00', 'PHONE','ACTIVE', 'P100', 1, 'S15'),
 (2, '2013-09-12', '12:00', 'PHONE','ACTIVE', 'P105', 1, 'S15'),
 (3, '2013-09-12', '10:00', 'PHONE','ACTIVE', 'P108', 2, 'S10'),
